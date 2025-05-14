@@ -2,9 +2,10 @@
 
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { PortfolioDetailsDto } from "../../types/types";
 
 interface TransactionListProps {
-  data: any; // Replace with the appropriate type
+  data: PortfolioDetailsDto[];
 }
 
 const TransactionList: React.FC<TransactionListProps> = ({ data }) => {

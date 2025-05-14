@@ -7,20 +7,12 @@ import AddCoinModal from "../../../components/portfolio/AddCoinModal";
 import { Button } from "../../../components/ui/button";
 import TransactionList from "../../../components/portfolio/TransactionList";
 import PortfolioDetails from "../../../components/portfolio/PortfolioDetails";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../../../components/ui/dialog";
+import { PortfolioDetailsDto } from "../../../types/types";
 
 const PortfolioPage = () => {
   const { id } = useParams();
   const { user } = useAuth();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<PortfolioDetailsDto[]>([]);
   const [open, setOpen] = useState<boolean>(false);
   const [totalInvested, setTotalInvested] = useState<number>(0);
 
@@ -47,12 +39,15 @@ const PortfolioPage = () => {
       }
       const data = await response.json();
       setData(data);
+      console.log("data", data);
     } catch (error) {
       console.error("Error fetching portfolios:", error);
     }
   };
 
-  const calculateTotalInvested = (portfolios): number => {
+  const calculateTotalInvested = (
+    portfolios: PortfolioDetailsDto[]
+  ): number => {
     return portfolios?.reduce((total, portfolio) => {
       return (
         total +
@@ -81,6 +76,7 @@ const PortfolioPage = () => {
       throw new Error("Failed to add coin");
     }
     const res = await response.json();
+    console.log("res", res);
     setData(res);
   };
 
@@ -107,7 +103,7 @@ const PortfolioPage = () => {
         />
       </div>
 
-      <PortfolioDetails id={id} data={data} totalInvested={totalInvested} />
+      <PortfolioDetails data={data} totalInvested={totalInvested} />
 
       <TransactionList data={data} />
     </div>

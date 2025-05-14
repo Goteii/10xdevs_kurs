@@ -19,6 +19,19 @@ export interface PortfolioDto
   summary?: PortfolioSummaryDto;
 }
 
+export interface PortfolioDetailsDto {
+  average_buy_price: number;
+  break_even_price: number | null;
+  created_at: string;
+  cryptocurrency_id: string;
+  deleted_at: string | null;
+  id: string;
+  portfolio_id: string;
+  total_amount: number;
+  transactions: { price: number; amount: number }[];
+  updated_at: string;
+}
+
 export interface PortfolioSummaryDto {
   totalPositions: DbPortfolioSummary["total_positions"];
   totalInvested: DbPortfolioSummary["total_invested"];

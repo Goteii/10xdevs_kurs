@@ -90,7 +90,7 @@ export default function HomePage() {
                 <span className="text-gray-700 mr-4">{user?.email}</span>
                 <button
                   onClick={signOut}
-                  className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700"
+                  className="cursor-pointer bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700"
                 >
                   Sign Out
                 </button>
@@ -143,7 +143,7 @@ export default function HomePage() {
                   </p>
                   <button
                     onClick={() => router.push(`/portfolios/${portfolio.id}`)}
-                    className="mt-4 px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                    className="cursor-pointer mt-4 px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
                   >
                     View Details
                   </button>
