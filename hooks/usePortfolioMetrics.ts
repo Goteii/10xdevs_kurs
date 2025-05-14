@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { PortfolioMetricsDto } from '../types/portfolio.types';
-import { portfolioService } from '../services/portfolio.service';
-import { useAuth } from './useAuth';
+import { useState, useEffect } from "react";
+import { PortfolioMetricsDto } from "../types/portfolio.types";
+import { portfolioService } from "../services/portfolio.service";
+import { useAuth } from "./useAuth";
 
 export function usePortfolioMetrics(portfolioId: string) {
   const { user } = useAuth();
@@ -15,13 +15,13 @@ export function usePortfolioMetrics(portfolioId: string) {
     const fetchData = async () => {
       try {
         const result = await portfolioService.getPortfolioMetrics(portfolioId);
-        setData(result);
+        setData(result as unknown as PortfolioMetricsDto);
         setError(null);
       } catch (err) {
         setError(
           err instanceof Error
             ? err
-            : new Error('Failed to fetch portfolio metrics')
+            : new Error("Failed to fetch portfolio metrics")
         );
       } finally {
         setIsLoading(false);

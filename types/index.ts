@@ -5,9 +5,9 @@ export interface PortfolioDto {
   createdAt: string;
   updatedAt: string;
   summary?: {
-    totalPositions: number;
-    totalInvested: number;
-    currentValue: number;
+    totalPositions: number | null;
+    totalInvested: number | null;
+    currentValue: number | null;
   };
 }
 
@@ -66,7 +66,7 @@ export interface PositionDto {
   cryptocurrency_id: string;
   total_amount: number;
   average_buy_price: number;
-  break_even_price: number;
+  break_even_price: number | null;
   createdAt: string;
   updatedAt: string;
   groups: {
@@ -129,4 +129,4 @@ export interface CryptocurrencyDto {
   name: string;
   symbol: string;
   exchangeId: string;
-} 
+}

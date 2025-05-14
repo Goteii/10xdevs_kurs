@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { BreakEvenCalculationDto } from '../types/position.types';
-import { positionService } from '../services/position.service';
-import { useAuth } from './useAuth';
+import { useState, useEffect } from "react";
+import { BreakEvenCalculationDto } from "../types/position.types";
+import { positionService } from "../services/position.service";
+import { useAuth } from "./useAuth";
 
 export function useBreakEvenCalculation(positionId: string) {
   const { user } = useAuth();
@@ -17,13 +17,13 @@ export function useBreakEvenCalculation(positionId: string) {
         const result = await positionService.getBreakEvenCalculation(
           positionId
         );
-        setData(result);
+        setData(result as unknown as BreakEvenCalculationDto);
         setError(null);
       } catch (err) {
         setError(
           err instanceof Error
             ? err
-            : new Error('Failed to fetch break even calculation')
+            : new Error("Failed to fetch break even calculation")
         );
       } finally {
         setIsLoading(false);
