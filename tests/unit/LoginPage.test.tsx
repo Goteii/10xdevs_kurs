@@ -1,7 +1,7 @@
 // tests/unit/LoginPage.test.tsx
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { vi, describe, beforeEach, it, expect } from "vitest";
+import { vi, describe, beforeEach, it, expect, Mock } from "vitest";
 import { useAuth } from "../../hooks/useAuth";
 import LoginPage from "../../app/login/page";
 import React from "react";

@@ -49,7 +49,10 @@ const TransactionList: React.FC<TransactionListProps> = ({ data }) => {
                       key={index}
                       className="border-b py-2 flex flex-row-reverse justify-start gap-10"
                     >
-                      <p>Price: ${transaction.price.toFixed(2)}</p>
+                      <p>
+                        Price: $
+                        {(transaction.price * transaction.amount).toFixed(2)}
+                      </p>
                       <p>Amount: {transaction.amount}</p>
                     </div>
                   ))
