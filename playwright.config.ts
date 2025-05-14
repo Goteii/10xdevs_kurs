@@ -11,4 +11,12 @@ export default defineConfig({
     actionTimeout: 0,
     trace: "on-first-retry", // Śledzenie dla pierwszej próby
   },
+  webServer: {
+    command: "npm run dev",
+    url: "http://localhost:3000",
+    reuseExistingServer: !process.env.CI,
+    timeout: 180 * 1000,
+    stdout: "ignore",
+    stderr: "pipe",
+  },
 });
