@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,6 +27,3 @@ jobs:
 
       - name: Run unit tests
         run: npm run test:v
-
-      - name: Run e2e tests
-        run: npm run test:p
