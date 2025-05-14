@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabase } from "../../../db/supabase";
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = createPositionSchema.parse(body);
 
-    const { data: position, error: positionError } = await supabase
+    const { data: position } = await supabase
       .from("positions")
       .select("*")
       .eq("portfolio_id", validatedData.portfolio_id)
